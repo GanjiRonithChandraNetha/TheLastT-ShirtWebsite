@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/ApproachSection.css';
 
 import imgBeforeConn from '../assets/beforeConnection.png';
@@ -19,7 +19,10 @@ const advantages = [
 ];
 
 const ApproachSection = () => {
+  const [selectedAdvantage, setSelectedAdvantage] = useState(null);
+
   return (
+    <>
     <div className="approach-section">
       <div className="approach-header">
         <h2 className="approach-main-title">Advantages of This Solution</h2>
@@ -28,7 +31,12 @@ const ApproachSection = () => {
 
       <div className="advantages-grid">
         {advantages.map((adv) => (
-          <div className="advantage-card" key={adv.id} style={{ '--adv-bg': adv.color }}>
+          <div 
+            className="advantage-card clickable-card" 
+            key={adv.id} 
+            style={{ '--adv-bg': adv.color }}
+            onClick={() => setSelectedAdvantage(adv)}
+          >
             <div className="advantage-image-wrapper">
               <img src={adv.img} alt={adv.title} className="advantage-image" />
             </div>
@@ -78,6 +86,29 @@ const ApproachSection = () => {
         </div>
       </div>
     </div>
+
+    {/* Zoom Modal */}
+    {selectedAdvantage && (
+      <div className="zoom-modal-overlay" onClick={() => setSelectedAdvantage(null)}>
+        <div className="zoom-modal-content" onClick={e => e.stopPropagation()}>
+          <div className="zoom-modal-header" style={{ backgroundColor: selectedAdvantage.color }}>
+            <button className="btn-close-modal" onClick={() => setSelectedAdvantage(null)}>
+              ← Back
+            </button>
+          </div>
+          <div className="zoom-modal-body">
+            <div className="zoom-modal-image-wrapper">
+              <img src={selectedAdvantage.img} alt={selectedAdvantage.title} className="zoom-modal-image" />
+            </div>
+            <div className="zoom-modal-text">
+              <h2 className="zoom-modal-title">✦ {selectedAdvantage.title}</h2>
+              <p className="zoom-modal-desc">{selectedAdvantage.desc}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   );
 };
 

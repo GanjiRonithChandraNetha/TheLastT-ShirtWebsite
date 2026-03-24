@@ -35,15 +35,6 @@ const SerpentineProgress = ({ activeStep, setActiveStep }) => {
           );
         })}
       </div>
-
-      {/* Dedicated div for dynamic content */}
-      <div className="sp-content-box window-card focus">
-        <div className="sp-content-header">
-          <h3>{steps[activeStep].title}</h3>
-          <span className="sp-step-badge">Phase {activeStep + 1}</span>
-        </div>
-        <p className="sp-content-body">{steps[activeStep].content}</p>
-      </div>
     </div>
   );
 };

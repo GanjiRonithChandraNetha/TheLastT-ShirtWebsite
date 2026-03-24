@@ -55,86 +55,106 @@ const Home = () => {
   return (
     <>
       <div className="card-shell">
-      <div className="card" style={{ textAlign: 'center', padding: '60px 40px' }}>
-        <div className="card-accent"></div>
+        <div className="card" style={{ textAlign: 'center', padding: '60px 40px' }}>
+          <div className="card-accent"></div>
 
-        {/* Insert beautifully animated hero graphic */}
-        <HeroImageDisplay />
+          {/* Insert beautifully animated hero graphic */}
+          <HeroImageDisplay />
 
-        <h1 style={{ background: 'linear-gradient(to right, var(--textPrimary), #4B5563)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>The Last Sign</h1>
-        <p style={{ maxWidth: '500px', margin: '0 auto 40px auto', fontSize: '18px' }}>
-          Elevate your daily workflow with our beautifully crafted applications. Built for speed, designed for scale.
-        </p>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '300px', margin: '0 auto' }}>
-          <a href="#" style={{ textDecoration: 'none' }}>
-            <button className="btn-primary btn-block">
-              Download for Android (APK)
-            </button>
-          </a>
-
-          <a href="#" style={{ textDecoration: 'none' }}>
-            <button className="btn-secondary btn-block">
-              Get it on Google Play
-            </button>
-          </a>
-
-          <a href="#" style={{ textDecoration: 'none' }}>
-            <button className="btn-secondary btn-block">
-              Download on the App Store
-            </button>
-          </a>
-        </div>
-
-        <div style={{ marginTop: '48px', paddingTop: '32px', borderTop: '1px solid var(--border)' }}>
-          <p style={{ fontSize: '12px', margin: 0 }}>
-            By downloading, you agree to our <a href="/terms" style={{ color: 'var(--primary)', fontWeight: 500 }}>Terms of Service</a> & <a href="/privacy" style={{ color: 'var(--primary)', fontWeight: 500 }}>Privacy Policy</a>.
+          <h1 style={{ background: 'linear-gradient(to right, var(--textPrimary), #4B5563)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>The Last Sign</h1>
+          <p style={{ maxWidth: '500px', margin: '0 auto 40px auto', fontSize: '18px' }}>
+            Elevate your daily workflow with our beautifully crafted applications. Built for speed, designed for scale.
           </p>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '300px', margin: '0 auto' }}>
+            <a href="#" style={{ textDecoration: 'none' }}>
+              <button className="btn-primary btn-block">
+                Download for Android (APK)
+              </button>
+            </a>
+
+            <a href="#" style={{ textDecoration: 'none' }}>
+              <button className="btn-secondary btn-block">
+                Get it on Google Play
+              </button>
+            </a>
+
+            <a href="#" style={{ textDecoration: 'none' }}>
+              <button className="btn-secondary btn-block">
+                Download on the App Store
+              </button>
+            </a>
+          </div>
+
+          <div style={{ marginTop: '48px', paddingTop: '32px', borderTop: '1px solid var(--border)' }}>
+            <p style={{ fontSize: '12px', margin: 0 }}>
+              By downloading, you agree to our <a href="/terms" style={{ color: 'var(--primary)', fontWeight: 500 }}>Terms of Service</a> & <a href="/privacy" style={{ color: 'var(--primary)', fontWeight: 500 }}>Privacy Policy</a>.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
 
-    {activeStep === 0 && (
-      <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
-        <ProblemsSection />
+      <div style={{ marginTop: '60px', marginBottom: '60px', padding: '0 20px' }}>
+        <h2 style={{ textAlign: 'center', marginBottom: '16px', fontSize: '32px' }}>Our Process</h2>
+        <p style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 40px auto' }}>Follow our proven path from identifying pain points to taking actionable steps.</p>
+        
+        {/* Placeholder for future YouTube video */}
+        <div style={{ 
+          maxWidth: '800px', 
+          margin: '0 auto 40px auto', 
+          aspectRatio: '16/9', 
+          backgroundColor: 'var(--white)', 
+          border: '4px solid var(--black)',
+          borderRadius: '12px',
+          boxShadow: '6px 6px 0px var(--black)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'var(--textSecondary)',
+          fontWeight: 'bold',
+          fontSize: '18px'
+        }}>
+          [ YouTube Video Placeholder ]
+        </div>
+
+        <SerpentineProgress activeStep={activeStep} setActiveStep={setActiveStep} />
       </div>
-    )}
 
-    {activeStep === 1 && (
-      <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
-        <ApproachSection />
-      </div>
-    )}
+      {activeStep === 0 && (
+        <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
+          <ProblemsSection />
+        </div>
+      )}
 
-    {activeStep === 2 && (
-      <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
-        <ExecutionSection />
-      </div>
-    )}
+      {activeStep === 1 && (
+        <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
+          <ApproachSection />
+        </div>
+      )}
 
-    {activeStep === 3 && (
-      <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
-        <IntentSection />
-      </div>
-    )}
+      {activeStep === 2 && (
+        <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
+          <ExecutionSection />
+        </div>
+      )}
 
-    {activeStep === 4 && (
-      <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
-        <ActionsSection />
-      </div>
-    )}
+      {activeStep === 3 && (
+        <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
+          <IntentSection />
+        </div>
+      )}
 
-    {activeStep === 5 && (
-      <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
-        <ContactSection />
-      </div>
-    )}
+      {activeStep === 4 && (
+        <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
+          <ActionsSection />
+        </div>
+      )}
 
-    <div style={{ marginTop: '60px', marginBottom: '60px', padding: '0 20px' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '16px', fontSize: '32px' }}>Our Process</h2>
-      <p style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 40px auto' }}>Follow our proven path from identifying pain points to taking actionable steps.</p>
-      <SerpentineProgress activeStep={activeStep} setActiveStep={setActiveStep} />
-    </div>
+      {activeStep === 5 && (
+        <div style={{ width: '100%', padding: '16px 8px', maxWidth: '1200px', margin: '0 auto', boxSizing: 'border-box' }}>
+          <ContactSection />
+        </div>
+      )}
     </>
   );
 };

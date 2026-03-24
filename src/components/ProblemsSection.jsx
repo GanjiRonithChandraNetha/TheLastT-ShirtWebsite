@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/ProblemsSection.css';
 
 import imgHesitation from '../assets/Hesitation.png';
@@ -54,7 +54,10 @@ const problems = [
 ];
 
 const ProblemsSection = () => {
+  const [selectedProblem, setSelectedProblem] = useState(null);
+
   return (
+    <>
     <div className="problems-section">
       <div className="problems-header">
         <h2 className="problems-main-title">Problems with Traditional T-shirt Signing</h2>
@@ -63,7 +66,12 @@ const ProblemsSection = () => {
 
       <div className="problems-grid">
         {problems.map((prob, idx) => (
-          <div className="problem-card" key={prob.id} style={{ '--card-bg': prob.color }}>
+          <div 
+            className="problem-card clickable-card" 
+            key={prob.id} 
+            style={{ '--card-bg': prob.color }}
+            onClick={() => setSelectedProblem(prob)}
+          >
             <div className="problem-image-wrapper">
               <img src={prob.image} alt={prob.title} className="problem-image" />
             </div>
@@ -76,6 +84,29 @@ const ProblemsSection = () => {
         ))}
       </div>
     </div>
+
+    {/* Zoom Modal */}
+    {selectedProblem && (
+      <div className="zoom-modal-overlay" onClick={() => setSelectedProblem(null)}>
+        <div className="zoom-modal-content" onClick={e => e.stopPropagation()}>
+          <div className="zoom-modal-header" style={{ backgroundColor: selectedProblem.color }}>
+            <button className="btn-close-modal" onClick={() => setSelectedProblem(null)}>
+              ← Back
+            </button>
+          </div>
+          <div className="zoom-modal-body">
+            <div className="zoom-modal-image-wrapper">
+              <img src={selectedProblem.image} alt={selectedProblem.title} className="zoom-modal-image" />
+            </div>
+            <div className="zoom-modal-text">
+              <h2 className="zoom-modal-title">{selectedProblem.title}</h2>
+              <p className="zoom-modal-desc">{selectedProblem.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   );
 };
 
