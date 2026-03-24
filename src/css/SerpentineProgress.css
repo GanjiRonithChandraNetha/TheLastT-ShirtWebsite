@@ -1,0 +1,263 @@
+.sp-container {
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* The Grid holds the serpentine items */
+.sp-grid {
+  display: grid;
+  width: 100%;
+  max-width: 900px;
+  /* Desktop: 6 columns */
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px 0;
+  position: relative;
+}
+
+/* Base item styling */
+.sp-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+/* The Circular Node */
+.sp-node {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: 4px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--black);
+  box-shadow: 3px 3px 0px var(--black);
+  transition: all 0.2s ease;
+  margin-bottom: 12px;
+}
+
+/* Node States */
+.sp-node.past {
+  background-color: var(--accent2);
+}
+.sp-node.active {
+  background-color: var(--primary);
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--black);
+  border-color: var(--black);
+}
+
+.sp-item:hover .sp-node:not(.active) {
+  background-color: var(--gray);
+  transform: translateY(-2px);
+  box-shadow: 3px 5px 0px var(--black);
+}
+.sp-item:active .sp-node {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--black) !important;
+}
+
+.sp-label {
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--textSecondary);
+  transition: color 0.2s ease;
+  text-align: center;
+}
+.active-label {
+  color: var(--textPrimary);
+}
+
+/* Linking lines using pseudo elements on the items */
+.sp-item::after {
+  content: '';
+  position: absolute;
+  top: 22px; /* Center of the 48px node */
+  left: 50%;
+  width: 100%;
+  height: 4px;
+  background-color: var(--black);
+  z-index: -1;
+}
+
+/* Remove line from the last item in a row visually */
+.sp-item-6::after {
+  display: none; /* Last item absolute */
+}
+
+/* --- RESPONSIVE SERPENTINE LOGIC --- */
+
+/* Tablet: 3 columns, 2 rows */
+@media (max-width: 900px) {
+  .sp-grid {
+    max-width: 500px;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 60px;
+  }
+  
+  /* Row 1 is normal (Items 1, 2, 3) */
+  /* Remove line extending out from 3 */
+  .sp-item-3::after {
+    display: none;
+  }
+
+  /* We need a vertical connection from 3 down to 4. 
+     We can place a vertical line on 3. */
+  .sp-item-3::before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    width: 4px;
+    height: calc(100% + 60px); /* spans to next row */
+    background-color: var(--black);
+    z-index: -1;
+  }
+
+  /* Row 2: serpentine goes right to left */
+  .sp-item-4 {
+    grid-column: 3;
+    grid-row: 2;
+  }
+  .sp-item-4::after {
+    /* line goes left instead of right */
+    left: -50%;
+  }
+
+  .sp-item-5 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .sp-item-5::after {
+    left: -50%;
+  }
+
+  .sp-item-6 {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
+/* Mobile: 2 columns, 3 rows */
+@media (max-width: 500px) {
+  .sp-grid {
+    max-width: 300px;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 60px;
+  }
+
+  /* Clear tablet specifics */
+  .sp-item-3::before, .sp-item-3::after, 
+  .sp-item-4::after, .sp-item-5::after {
+    display: block; /* reset */
+    height: 4px;
+    width: 100%;
+    left: 50%;
+  }
+
+  /* Row 1 (Items 1, 2) */
+  .sp-item-1::after { left: 50%; display: block; }
+  .sp-item-2::after { display: none; }
+  
+  /* Vertical drop from 2 to 3 */
+  .sp-item-2::before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    width: 4px;
+    height: calc(100% + 60px);
+    background-color: var(--black);
+    z-index: -1;
+  }
+
+  /* Row 2 goes right to left (Items 3, 4) */
+  .sp-item-3 { grid-column: 2; grid-row: 2; }
+  .sp-item-3::before { display: none; } /* Clear tablet vertical */
+  .sp-item-3::after { left: -50%; }
+
+  .sp-item-4 { grid-column: 1; grid-row: 2; }
+  .sp-item-4::after { display: none; } /* End of row */
+
+  /* Vertical drop from 4 down to 5 */
+  .sp-item-4::before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    width: 4px;
+    height: calc(100% + 60px);
+    background-color: var(--black);
+    z-index: -1;
+  }
+
+  /* Row 3 goes left to right (Items 5, 6) */
+  .sp-item-5 { grid-column: 1; grid-row: 3; }
+  .sp-item-5::after { left: 50%; }
+  
+  .sp-item-6 { grid-column: 2; grid-row: 3; }
+  .sp-item-6::after { display: none; }
+}
+
+/* Content Box below */
+.sp-content-box {
+  width: 100%;
+  max-width: 700px;
+  background-color: var(--white);
+  border: 2px solid var(--black);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 6px 6px 0px var(--black);
+  position: relative;
+  transition: transform 0.2s;
+  margin-top: 20px;
+}
+
+.sp-content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px dashed var(--border);
+  padding-bottom: 16px;
+}
+
+.sp-content-header h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--textPrimary);
+}
+
+.sp-step-badge {
+  background-color: var(--accent1);
+  color: var(--black);
+  border: 2px solid var(--black);
+  font-weight: 800;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 0px var(--black);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sp-content-body {
+  font-size: 16px;
+  color: var(--textSecondary);
+  line-height: 1.6;
+  margin: 0;
+}
