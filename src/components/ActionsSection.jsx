@@ -111,6 +111,21 @@ const ActionsSection = () => {
         description="Instructions outlining exactly what vendors must do in order to collaborate with me."
         color="var(--accent2)"
       />
+
+      {/* College Support Section */}
+      <div className="actions-header" style={{ marginTop: '80px' }}>
+        <h2 className="actions-main-title">For College Administration</h2>
+        <div className="title-underline-acts" style={{ backgroundColor: 'var(--secondary)', transform: 'rotate(1deg)' }}></div>
+      </div>
+      
+      <VideoEmbed 
+        videoId="" 
+        title="Support Needed From The College" 
+        description={`Recommend to college people who wants to know what the college needs to do in order for the application to go live.
+
+• Support needed from the college to make the application go live`}
+        color="var(--secondary)"
+      />
     </div>
   );
 };
