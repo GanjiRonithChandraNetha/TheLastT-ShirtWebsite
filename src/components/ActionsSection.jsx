@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/ActionsSection.css';
+import VideoEmbed from './VideoEmbed';
 
 const roadmap = [
   { 
@@ -52,6 +53,13 @@ const ActionsSection = () => {
         <div className="title-underline-acts"></div>
       </div>
       
+      <VideoEmbed 
+        videoId="jmEGPb6Ij4Q" 
+        title="Product Road Map" 
+        description="See the additional stages the product has to go through to become a complete, usable, and polished product. Perfect for vendors who want to collaborate."
+        color="var(--primary)"
+      />
+      
       <div className="roadmap-grid">
         {roadmap.map((block, index) => (
           <div className="roadmap-card" key={index} style={{ '--rm-color': block.color }}>
@@ -90,6 +98,19 @@ const ActionsSection = () => {
           </div>
         ))}
       </div>
+
+      {/* Vendor Instructions Section */}
+      <div className="actions-header" style={{ marginTop: '80px' }}>
+        <h2 className="actions-main-title">For Vendors</h2>
+        <div className="title-underline-acts" style={{ backgroundColor: 'var(--accent2)', transform: 'rotate(-1deg)' }}></div>
+      </div>
+      
+      <VideoEmbed 
+        videoId="ESRG1iNjxZQ" 
+        title="Vendor Instructions" 
+        description="Instructions outlining exactly what vendors must do in order to collaborate with me."
+        color="var(--accent2)"
+      />
     </div>
   );
 };

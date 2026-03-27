@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/IntentSection.css';
+import VideoEmbed from './VideoEmbed';
 
 const strengths = [
   {
@@ -88,6 +89,13 @@ const IntentSection = () => {
         <h2 className="intent-main-title">Intent & Expectation</h2>
         <div className="title-underline-intent"></div>
       </div>
+      
+      <VideoEmbed 
+        videoId="SITPvGV5z6c" 
+        title="Intent Behind Building" 
+        description="To tell companies, recruiters, or others who can provide opportunities what I am capable of and what I am expecting out of this application."
+        color="var(--accent1)"
+      />
       
       <div className="intent-intro-box">
         <p>I built this application not just as a product, but as a way to demonstrate my core strengths:</p>

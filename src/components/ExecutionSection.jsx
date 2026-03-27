@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/ExecutionSection.css';
+import VideoEmbed from './VideoEmbed';
 
 import imgUserModes from '../assets/userModes.png';
 import imgSignModes from '../assets/SignModes.png';
@@ -146,6 +147,13 @@ const ExecutionSection = () => {
         <h2 className="execution-main-title">Execution & Rules</h2>
         <div className="title-underline-exec"></div>
       </div>
+      
+      <VideoEmbed 
+        videoId="GTCzL6N7ktU" 
+        title="Applications Logic Guide" 
+        description="Explains the logical flow of the applications and how things work under the hood so that users can use the application better."
+        color="var(--secondary)"
+      />
       
       <div className="execution-grid">
         {ruleCards.map((rule) => (

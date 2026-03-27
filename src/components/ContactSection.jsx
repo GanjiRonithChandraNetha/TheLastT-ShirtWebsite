@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/ContactSection.css';
+import VideoEmbed from './VideoEmbed';
 
 const generalEmail = import.meta.env.VITE_GENERAL_EMAIL || "some-email@example.com";
 const hireEmail = import.meta.env.VITE_HIRE_EMAIL || "hire-me-specific-email@example.com";
@@ -46,6 +47,13 @@ const ContactSection = () => {
         <h2 className="contact-main-title">Point Of Contact</h2>
         <div className="title-underline-contact"></div>
       </div>
+      
+      <VideoEmbed 
+        videoId="yZENg085lL0" 
+        title="Point of Contact" 
+        description="Details on how to contact me."
+        color="var(--secondary)"
+      />
       
       <div className="contact-intro-card">
         <div className="contact-intro-content">
