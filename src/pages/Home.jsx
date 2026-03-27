@@ -97,8 +97,8 @@ const Home = () => {
       </div>
 
       <div style={{ marginTop: '60px', marginBottom: '60px', padding: '0 20px' }}>
-        <h2 style={{ textAlign: 'center', marginBottom: '16px', fontSize: '32px' }}>Our Process</h2>
-        <p style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 40px auto' }}>Follow our proven path from identifying pain points to taking actionable steps.</p>
+        <h2 style={{ textAlign: 'center', marginBottom: '16px', fontSize: '32px' }}>Know About The App</h2>
+        <p style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto 40px auto' }}>All the information you need to know about the app.</p>
 
         <VideoEmbed
           videoId="RBZfhtol9sE"
@@ -110,6 +110,23 @@ const Home = () => {
 • Expected result if the application is implemented`}
           color="var(--accent1)"
         />
+
+        {/* Navigation Instruction */}
+        <div style={{
+          backgroundColor: 'var(--accent2)',
+          border: '4px solid var(--black)',
+          borderRadius: '12px',
+          padding: '16px 24px',
+          boxShadow: '4px 4px 0px var(--black)',
+          maxWidth: '600px',
+          margin: '0 auto 40px auto',
+          textAlign: 'center',
+          fontWeight: 'bold',
+          fontSize: '18px',
+          color: 'var(--textPrimary)'
+        }}>
+          👇 Click to navigate through the steps below to explore each section and corresponding video!
+        </div>
 
         <SerpentineProgress activeStep={activeStep} setActiveStep={setActiveStep} />
       </div>
