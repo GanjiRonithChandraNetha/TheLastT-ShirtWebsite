@@ -59,6 +59,16 @@ const ContactSection = () => {
         <div className="contact-intro-content">
           <h3>Primary Email Address</h3>
           <p className="contact-email-text">{generalEmail}</p>
+
+          <div className="msg-block" style={{ backgroundColor: 'var(--white)', textAlign: 'left', marginTop: '16px', marginBottom: '16px', border: '2px solid var(--black)' }}>
+            <div className="msg-label">Business Details</div>
+            <div className="msg-text">
+              <strong>Operating Business:</strong> [Registered Business Name]<br />
+              <strong>GST PIN / Registration:</strong> [Your GST Number details here]<br />
+              <strong>Registered Address:</strong> [Mom's Registered Business Address]
+            </div>
+          </div>
+
           <span className="contact-note">Click any of the cards below to automatically draft an email with the correct subject line!</span>
         </div>
       </div>

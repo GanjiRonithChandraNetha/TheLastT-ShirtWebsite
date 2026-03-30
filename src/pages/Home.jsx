@@ -69,23 +69,36 @@ const Home = () => {
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '300px', margin: '0 auto' }}>
-            <a href="#" style={{ textDecoration: 'none' }}>
-              <button className="btn-primary btn-block">
-                Download for Android (APK)
+            <a href="https://expo.dev/accounts/ronithganji/projects/merch/builds/f6101e2f-a3ee-4083-97f9-228ef7789faf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+              <button className="btn-primary btn-block" style={{ flexDirection: 'column', gap: '4px', padding: '12px 16px' }}>
+                <span style={{ fontSize: '15px', lineHeight: 1.2 }}>Install via Expo Go</span>
+                <span style={{ fontSize: '11px', fontWeight: 600, opacity: 0.7, letterSpacing: '0.5px', lineHeight: 1.2 }}>(ANDROID ONLY)</span>
               </button>
             </a>
 
-            <a href="#" style={{ textDecoration: 'none' }}>
-              <button className="btn-secondary btn-block">
-                Get it on Google Play
+            <div style={{ cursor: 'not-allowed' }}>
+              <button className="btn-secondary btn-block" disabled style={{ 
+                pointerEvents: 'none', 
+                backgroundColor: 'var(--gray)', 
+                color: 'var(--textSecondary)', 
+                borderColor: 'var(--textSecondary)', 
+                boxShadow: '3px 3px 0px var(--textSecondary)' 
+              }}>
+                Google Play (Coming Soon)
               </button>
-            </a>
+            </div>
 
-            <a href="#" style={{ textDecoration: 'none' }}>
-              <button className="btn-secondary btn-block">
-                Download on the App Store
+            <div style={{ cursor: 'not-allowed' }}>
+              <button className="btn-secondary btn-block" disabled style={{ 
+                pointerEvents: 'none', 
+                backgroundColor: 'var(--gray)', 
+                color: 'var(--textSecondary)', 
+                borderColor: 'var(--textSecondary)', 
+                boxShadow: '3px 3px 0px var(--textSecondary)' 
+              }}>
+                App Store (Coming Soon)
               </button>
-            </a>
+            </div>
           </div>
 
           <div style={{ marginTop: '48px', paddingTop: '32px', borderTop: '1px solid var(--border)' }}>
