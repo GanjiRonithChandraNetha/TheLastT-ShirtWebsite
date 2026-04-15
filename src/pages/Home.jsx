@@ -69,7 +69,7 @@ const Home = () => {
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '300px', margin: '0 auto' }}>
-            <a href="https://expo.dev/accounts/ronithganji/projects/merch/builds/f6101e2f-a3ee-4083-97f9-228ef7789faf" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+            <a href="https://expo.dev/accounts/ronithganji/projects/merch/builds/372689d2-2c8b-44c1-9222-976ef9c99668" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
               <button className="btn-primary btn-block" style={{ flexDirection: 'column', gap: '4px', padding: '12px 16px' }}>
                 <span style={{ fontSize: '15px', lineHeight: 1.2 }}>Install via Expo Go</span>
                 <span style={{ fontSize: '11px', fontWeight: 600, opacity: 0.7, letterSpacing: '0.5px', lineHeight: 1.2 }}>(ANDROID ONLY)</span>
