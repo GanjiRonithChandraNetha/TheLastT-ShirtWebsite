@@ -99,6 +99,11 @@ const Home = () => {
                 App Store (Coming Soon)
               </button>
             </div>
+             <a href="https://drive.google.com/drive/folders/1WZdbeQRqSvK9mfyVxPQ0w3-C8cqLb_b6?usp=sharing" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+              <button className="btn-secondary btn-block" style={{ padding: '12px 16px', backgroundColor: 'var(--accent2)', color: 'var(--textPrimary)' }}>
+                Get Sample Stickers
+              </button>
+            </a>
           </div>
 
           <div style={{ marginTop: '48px', paddingTop: '32px', borderTop: '1px solid var(--border)' }}>
